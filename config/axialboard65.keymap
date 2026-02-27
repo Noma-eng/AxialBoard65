@@ -7,16 +7,16 @@
 
         default_layer {
             bindings = <
-                &kp ESC     &kp N2      &kp N4     &kp N6      &kp N8     &kp N0      &kp CARET   &none
-                &kp N1      &kp N3      &kp N5     &kp N7      &kp N9     &kp MINUS    &kp BSPC    &none
-                &kp TAB     &kp W       &kp R      &kp Y       &kp I      &kp P        &kp LBKT    &none
-                &kp Q       &kp E       &kp T      &kp U       &kp O      &kp AT       &kp ENTER   &kp DEL
-                &kp CAPS    &kp S       &kp F      &kp H       &kp K      &kp SEMI     &kp RBKT    &kp PSCRN
-                &kp A       &kp D       &kp G      &kp J       &kp L      &kp COLON    &none       &none
-                &kp LSHIFT  &kp X       &kp V      &kp N       &kp COMMA  &kp SLASH    &kp RSHIFT  &none
-                &kp Z       &kp C       &kp B      &kp M       &kp DOT    &kp INT1     &kp UP      &none
-                &kp LCTRL   &kp LALT    &kp SPACE  &kp SPACE   &kp HENK   &none        &kp LEFT    &none
-                &kp LGUI    &kp MUHENK  &kp SPACE  &none       &kp RALT   &kp RCTRL    &kp DOWN    &kp RIGHT
+                &kp ESC &kp N2 &kp N4 &kp N6 &kp N8 &kp N0 &kp CARET &none
+                &kp N1 &kp N3 &kp N5 &kp N7 &kp N9 &kp MINUS &kp BSPC &none
+                &kp TAB &kp W &kp R &kp Y &kp I &kp P &kp LBKT &none
+                &kp Q &kp E &kp T &kp U &kp O &kp AT &kp ENTER &kp DEL
+                &kp CAPS &kp S &kp F &kp H &kp K &kp SEMI &kp RBKT &kp PSCRN
+                &kp A &kp D &kp G &kp J &kp L &kp COLON &none &none
+                &kp LSHIFT &kp X &kp V &kp N &kp COMMA &kp SLASH &kp RSHIFT &none
+                &kp Z &kp C &kp B &kp M &kp DOT &kp SLASH &kp UP &none
+                &kp LCTRL &kp LALT &kp SPACE &kp SPACE &kp SPACE &none &kp LEFT &none
+                &kp LGUI &kp SPACE &kp SPACE &kp SPACE &kp RALT &kp RCTRL &kp DOWN &kp RIGHT
             >;
         };
     };
