@@ -1,0 +1,6 @@
+file_format: "1"
+id: axialboard65
+name: AxialBoard65
+type: shield
+requires:
+  - nice_nano_v2
