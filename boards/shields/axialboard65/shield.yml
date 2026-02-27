@@ -3,4 +3,4 @@ id: axialboard65
 name: AxialBoard65
 type: shield
 requires:
-  - nice_nano_v2
+  - ble_micro_pro

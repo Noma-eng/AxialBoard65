@@ -1,4 +1,4 @@
 
 include:
-  - board: nice_nano_v2
+  - board: ble_micro_pro
     shield: axialboard65
