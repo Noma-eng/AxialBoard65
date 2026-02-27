@@ -16,7 +16,11 @@
                 &kp A       &kp D      &kp G      &kp J      &kp L      &kp COLON  &none       &none
                 &kp LSHIFT  &kp X      &kp V      &kp N      &kp COMMA  &kp SLASH  &kp RSHIFT  &none
                 &kp Z       &kp C      &kp B      &kp M      &kp DOT    &kp INT1   &kp UP      &none
+<<<<<<< HEAD
                 &kp LCTRL   &kp LALT   &kp SPACE  &kp SPACE  &kp HENK   &kp APP    &kp LEFT    &none
+=======
+                &kp LCTRL   &kp LALT   &kp SPACE  &kp SPACE  &kp HENK   &kp APP   &kp LEFT    &none
+>>>>>>> 756394d7e671e542905a4aa67cfbc456f526d078
                 &kp LGUI    &kp MUHENK &kp SPACE  &none      &kp RALT   &kp RCTRL  &kp DOWN    &kp RIGHT
             >;
         };
