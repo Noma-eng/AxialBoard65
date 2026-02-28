@@ -3,4 +3,4 @@ id: axialboard65
 name: AxialBoard65
 type: shield
 requires:
-  - ble_micro_pro
+  - bmp_boost
