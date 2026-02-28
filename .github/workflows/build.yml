@@ -5,6 +5,3 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     
-include:
-  - board: bmp_boost
-    shield: AxialBoard65

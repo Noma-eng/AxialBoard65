@@ -2,3 +2,6 @@
 include:
   - board: ble_micro_pro
     shield: axialboard65
+include:
+  - board: bmp_boost
+    shield: AxialBoard65
