@@ -1,14 +1,24 @@
 manifest:
   defaults:
     revision: v0.3
+
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: sekigon-gonnoc
+      url-base: https://github.com/sekigon-gonnoc
+
+  # Additional modules containing boards/shields/custom code can be listed here as well
+  # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+
+    - name: zmk-component-bmp-boost
+      remote: sekigon-gonnoc
+      revision: master
+      import: west.yml
+
   self:
     path: config
