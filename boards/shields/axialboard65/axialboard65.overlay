@@ -3,30 +3,35 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";
+        diode-direction = "col2row";
 
-        /* ROW = outputs (drive) */
+        /*
+         * drive side = COL (active-high drive)
+         * read side  = ROW (active-high read, pull-down)
+         */
+
+        /* ROW = read side (inputs) */
         row-gpios =
-            <&gpio1 3 GPIO_ACTIVE_LOW>,
-            <&gpio1 0 GPIO_ACTIVE_LOW>,
-            <&gpio0 23 GPIO_ACTIVE_LOW>,
-            <&gpio0 22 GPIO_ACTIVE_LOW>,
-            <&gpio0 20 GPIO_ACTIVE_LOW>,
-            <&gpio0 19 GPIO_ACTIVE_LOW>,
-            <&gpio0 16 GPIO_ACTIVE_LOW>,
-            <&gpio0 18 GPIO_ACTIVE_LOW>,
-            <&gpio0 11 GPIO_ACTIVE_LOW>,
-            <&gpio0 8 GPIO_ACTIVE_LOW>;
+            <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
-        /* COL = inputs (read) -> add PULL_UP here */
+        /* COL = drive side (outputs) */
         col-gpios =
-            <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio1 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 30 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>,
-            <&gpio0 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+            <&gpio0 5 GPIO_ACTIVE_HIGH>,
+            <&gpio0 3 GPIO_ACTIVE_HIGH>,
+            <&gpio1 14 GPIO_ACTIVE_HIGH>,
+            <&gpio1 15 GPIO_ACTIVE_HIGH>,
+            <&gpio0 10 GPIO_ACTIVE_HIGH>,
+            <&gpio0 9 GPIO_ACTIVE_HIGH>,
+            <&gpio0 30 GPIO_ACTIVE_HIGH>,
+            <&gpio0 0 GPIO_ACTIVE_HIGH>;
     };
 };
