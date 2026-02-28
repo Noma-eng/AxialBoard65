@@ -12,9 +12,9 @@
                 &kp TAB &kp W &kp R &kp Y &kp I &kp P &kp LBKT &none
                 &kp Q &kp E &kp T &kp U &kp O &kp AT &kp ENTER &kp DEL
                 &kp CAPS &kp S &kp F &kp H &kp K &kp SEMI &kp RBKT &kp PSCRN
-                &kp A &kp D &kp G &kp J &kp L &kp COLON &NUBS &none
+                &kp A &kp D &kp G &kp J &kp L &kp COLON &none &none
                 &kp LSHIFT &kp X &kp V &kp N &kp COMMA &kp SLASH &kp RSHIFT &none
-                &kp Z &kp C &kp B &kp M &kp DOT &kp SLASH &kp UP &none
+                &kp Z &kp C &kp B &kp M &kp DOT &kp NUBS &kp UP &none
                 &kp LCTRL &kp LALT &kp SPACE &kp SPACE &kp INT4 &none &kp LEFT &none
                 &kp LGUI &kp INT5 &kp SPACE &none &kp RALT &kp RCTRL &kp DOWN &kp RIGHT
             >;
