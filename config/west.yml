@@ -21,4 +21,4 @@ manifest:
       import: west.yml
 
   self:
-    path: config
+    path: .
