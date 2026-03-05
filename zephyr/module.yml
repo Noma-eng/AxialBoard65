@@ -1,3 +1,6 @@
+name: axialboard65
+
 build:
+  cmake: zephyr
   settings:
     board_root: .
