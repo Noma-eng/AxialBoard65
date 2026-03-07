@@ -40,6 +40,7 @@
 #define JP_RT    LS(JP_DOT)   // >
 #define JP_QMARK LS(JP_SLASH) // ?
 #define JP_UNDER LS(JP_BSLH)  // _
+#define CALC  C_AL_CALCULATOR //電卓キー
 
 / {
     keymap {
@@ -55,8 +56,19 @@
 
                 &kp LSHIFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M   &kp COMMA   &kp DOT   &kp SLASH   &kp JP_BSLH  &kp RSHIFT   &kp UP     &none     &none
 
-                &kp LCTRL   &kp LGUI  &kp LALT  &kp INT5  &kp SPACE &kp SPACE &kp SPACE &none   &kp JP_HENK &kp RALT  &none       &kp RCTRL    &kp LEFT     &kp DOWN   &none     &kp RIGHT
+                &kp LCTRL   &kp LGUI  &kp LALT  &kp INT5  &kp SPACE &kp SPACE &kp SPACE &none   &kp JP_HENK &kp CALC  &mo 1       &kp RCTRL    &kp LEFT     &kp DOWN   &none     &kp RIGHT
             >;
         };
+
+        fn_layer {
+            bindings = <
+                &trans      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7   &kp F8      &kp F9    &kp F10     &kp F11      &kp F12      &trans     &trans    &trans
+                &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &trans     &trans    &trans
+                &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &trans     &trans    &trans
+                &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &kp PG_UP  &trans    &trans
+                &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &kp HOME     &kp PG_DN  &trans    &kp END
+            >;
+        };
+
     };
 };
