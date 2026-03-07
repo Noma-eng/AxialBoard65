@@ -7,4 +7,4 @@ zephyr_library_include_directories(
   ${WEST_TOPDIR}/zmk/app/module/include
 )
 
-zephyr_library_sources(${CMAKE_CURRENT_LIST_DIR}/../src/matrix_encoders.c)
+# zephyr_library_sources(${CMAKE_CURRENT_LIST_DIR}/../src/matrix_encoders.c)

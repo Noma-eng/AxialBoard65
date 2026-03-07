@@ -1,22 +1,61 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#define JP_ZKHK  GRAVE        // (半角 ↔ 全角 ↔ 漢字)
+#define JP_MINUS MINUS        // -
+#define JP_CARET EQUAL        // ^
+#define JP_YEN   INT3         // ¥
+#define JP_AT    LBKT         // @
+#define JP_LBKT  RBKT         // [
+#define JP_EISU  CAPS         // Eisū (英数)
+#define JP_SEMI  SEMI         // ;
+#define JP_COLON SQT          // :
+#define JP_RBKT  NUHS         // ]
+#define JP_COMMA COMMA        // ,
+#define JP_DOT   DOT          // .
+#define JP_SLASH SLASH        // /
+#define JP_BSLH  INT1         // (backslash)
+#define JP_MHEN  INT5         // Muhenkan (無変換)
+#define JP_HENK  INT4         // Henkan (変換)
+#define JP_KANA  INT2         // (カタカナ ↔ ひらがな ↔ ローマ字)
+#define JP_EXCL  LS(N1)       // !
+#define JP_DQT   LS(N2)       // "
+#define JP_HASH  LS(N3)       // #
+#define JP_DLLR  LS(N4)       // $
+#define JP_PRCNT LS(N5)       // %
+#define JP_AMPS  LS(N6)       // &
+#define JP_SQT   LS(N7)       // '
+#define JP_LPAR  LS(N8)       // (
+#define JP_RPAR  LS(N9)       // )
+#define JP_EQUAL LS(JP_MINUS) // =
+#define JP_TILDE LS(JP_CARET) // ~
+#define JP_PIPE  LS(JP_YEN)   // |
+#define JP_GRAVE LS(JP_AT)    // `
+#define JP_LBRC  LS(JP_LBKT)  // {
+#define JP_CAPS  LS(JP_EISU)  // Caps Lock
+#define JP_PLUS  LS(JP_SEMI)  // +
+#define JP_ASTRK LS(JP_COLON) // *
+#define JP_RBRC  LS(JP_RBKT)  // }
+#define JP_LT    LS(JP_COMMA) // <
+#define JP_RT    LS(JP_DOT)   // >
+#define JP_QMARK LS(JP_SLASH) // ?
+#define JP_UNDER LS(JP_BSLH)  // _
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp ESC &kp N2 &kp N4 &kp N6 &kp N8 &kp N0 &kp CARET &none
-                &kp N1 &kp N3 &kp N5 &kp N7 &kp N9 &kp MINUS &kp BSPC &none
-                &kp TAB &kp W &kp R &kp Y &kp I &kp P &kp LBKT &none
-                &kp Q &kp E &kp T &kp U &kp O &kp AT &kp ENTER &kp DEL
-                &kp CAPS &kp S &kp F &kp H &kp K &kp SEMI &kp RBKT &kp PSCRN
-                &kp A &kp D &kp G &kp J &kp L &kp COLON &none &none
-                &kp LSHIFT &kp X &kp V &kp N &kp COMMA &kp SLASH &kp RSHIFT &none
-                &kp Z &kp C &kp B &kp M &kp DOT &kp NUBS &kp UP &none
-                &kp LCTRL &kp LALT &kp SPACE &kp SPACE &kp INT4 &none &kp LEFT &none
-                &kp LGUI &kp INT5 &kp SPACE &none &kp RALT &kp RCTRL &kp DOWN &kp RIGHT
+                &kp ESC     &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7  &kp N8      &kp N9    &kp N0      &kp JP_MINUS &kp JP_CARET &kp BSPC   &none     &none
+
+                &kp TAB     &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U   &kp I       &kp O     &kp P       &kp JP_AT    &kp JP_LBKT  &kp ENTER  &none     &kp DEL
+
+                &kp JP_CAPS &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J   &kp K       &kp L     &kp JP_SEMI &kp JP_COLON &kp JP_RBKT  &none      &kp PSCRN &none
+
+                &kp LSHIFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M   &kp COMMA   &kp DOT   &kp SLASH   &kp JP_BSLH  &kp RSHIFT   &kp UP     &none     &none
+
+                &kp LCTRL   &kp LGUI  &kp LALT  &kp INT5  &kp SPACE &kp SPACE &kp SPACE &none   &kp JP_HENK &kp RALT  &none       &kp RCTRL    &kp LEFT     &kp DOWN   &none     &kp RIGHT
             >;
         };
     };

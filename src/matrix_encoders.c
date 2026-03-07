@@ -5,14 +5,13 @@
 
 // HID送出（ZMK本体に hid.c があるのでヘッダはこれが合うはず）
 #include <zmk/hid.h>
-#include <zmk/hid_consumer.h>   // 無い場合は後述
 
 #define NUM_ENCODERS 2
 
-// matrix position = row * 8 + col （MATRIX_COLS=8 前提）
-#define RE1_A_POS 7
+// matrix_transform 後の logical position 番号
+#define RE1_A_POS 14
 #define RE1_B_POS 15
-#define RE2_A_POS 55
+#define RE2_A_POS 62
 #define RE2_B_POS 63
 
 static const uint8_t a_pos[NUM_ENCODERS] = { RE1_A_POS, RE2_A_POS };
@@ -37,8 +36,7 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
 // Consumerキーをタップ（音量など）
 static void tap_consumer(uint16_t usage) {
     zmk_hid_consumer_press(usage);
-    k_sleep(K_MSEC(5));
-    zmk_hid_consumer_release(usage);
+    zmk_hid_consumer_release();
 }
 
 static void on_step(int enc_index, bool clockwise) {
@@ -63,11 +61,11 @@ static void update_ab(int enc, bool is_a, bool pressed) {
 
     acc[enc] += d;
 
-    // まずは2遷移=1ノッチで試験（反応しない/多すぎる場合は4に戻す）
-    if (acc[enc] >= 2) {
+        // 最初は 4 遷移 = 1 ノッチのほうが安全
+    if (acc[enc] >= 4) {
         acc[enc] = 0;
         on_step(enc, true);
-    } else if (acc[enc] <= -2) {
+    } else if (acc[enc] <= -4) {
         acc[enc] = 0;
         on_step(enc, false);
     }
