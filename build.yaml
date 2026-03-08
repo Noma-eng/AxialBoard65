@@ -2,3 +2,4 @@
 include:
   - board: bmp_boost
     shield: axialboard65
+    snippet: zmk-usb-logging
