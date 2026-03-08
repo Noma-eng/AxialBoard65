@@ -2,8 +2,7 @@
 
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
-
-#include <zmk/hid.h>
+#include <zmk/events/keycode_state_changed.h>
 
 #define NUM_ENCODERS 2
 
