@@ -11,6 +11,10 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
 
+        debounce-press-ms = <0>;
+        debounce-release-ms = <0>;
+        debounce-scan-period-ms = <1>;
+
         /* COL = drive side (outputs) */
         col-gpios =
             <&gpio0 5 GPIO_ACTIVE_HIGH>,
