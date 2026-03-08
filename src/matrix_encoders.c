@@ -3,8 +3,6 @@
 #include <zmk/events/position_state_changed.h>
 #include <zmk/keymap.h>
 
-#include <zephyr/sys/printk.h>
-
 #define NUM_ENCODERS 2
 #define ENC_SYNTH_SOURCE 1  // synthetic re-injected position events for encoders
 
@@ -78,11 +76,6 @@ static int matrix_encoders_listener(const zmk_event_t *eh) {
     const struct zmk_position_state_changed *ev = as_zmk_position_state_changed(eh);
     if (!ev) return ZMK_EV_EVENT_BUBBLE;
 
-    printk("enc raw: pos=%u state=%d source=%u\n",
-           (unsigned int)ev->position,
-           ev->state,
-           ev->source);
-
     /* 自分が再発行した synthetic event は無視して ZMK 本体へ流す */
     if (ev->source == ENC_SYNTH_SOURCE) {
         return ZMK_EV_EVENT_BUBBLE;
@@ -93,12 +86,10 @@ static int matrix_encoders_listener(const zmk_event_t *eh) {
 
     for (int i = 0; i < NUM_ENCODERS; i++) {
         if (pos == a_pos[i]) {
-            printk("matched A[%d]\n", i);
             update_ab(i, true, pressed);
             return ZMK_EV_EVENT_HANDLED;
         }
         if (pos == b_pos[i]) {
-            printk("matched B[%d]\n", i);
             update_ab(i, false, pressed);
             return ZMK_EV_EVENT_HANDLED;
         }
