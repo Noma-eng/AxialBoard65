@@ -34,12 +34,9 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
 static void tap_position(uint32_t position) {
     int64_t ts = k_uptime_get();
 
-    zmk_keymap_position_state_changed(
-        ENC_SYNTH_SOURCE, position, true, ts
-    );
-    zmk_keymap_position_state_changed(
-        ENC_SYNTH_SOURCE, position, false, ts
-    );
+    zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, true, ts);
+    k_msleep(20);
+    zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, false, ts);
 }
 
 static void on_step(int enc_index, bool clockwise) {
