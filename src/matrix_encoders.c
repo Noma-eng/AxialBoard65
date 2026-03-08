@@ -3,12 +3,11 @@
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
 
-// HID送出（ZMK本体に hid.c があるのでヘッダはこれが合うはず）
 #include <zmk/hid.h>
 
 #define NUM_ENCODERS 2
 
-// matrix_transform 後の logical position 番号
+// logical position 番号
 #define RE1_A_POS 14
 #define RE1_B_POS 15
 #define RE2_A_POS 62
@@ -34,18 +33,18 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
 }
 
 // Consumerキーをタップ（音量など）
-static void tap_consumer(uint16_t usage) {
-    zmk_hid_consumer_press(usage);
-    zmk_hid_consumer_release(usage);
+static void tap_keycode(uint32_t keycode) {
+    int64_t ts = k_uptime_get();
+
+    raise_zmk_keycode_state_changed_from_encoded(keycode, true, ts);
+    raise_zmk_keycode_state_changed_from_encoded(keycode, false, ts);
 }
 
 static void on_step(int enc_index, bool clockwise) {
     if (enc_index == 0) {
-        tap_consumer(clockwise ? HID_USAGE_CONSUMER_VOLUME_INCREMENT
-                               : HID_USAGE_CONSUMER_VOLUME_DECREMENT);
+        tap_keycode(clockwise ? C_VOL_UP : C_VOL_DN);
     } else {
-        tap_consumer(clockwise ? HID_USAGE_CONSUMER_SCAN_NEXT_TRACK
-                               : HID_USAGE_CONSUMER_SCAN_PREVIOUS_TRACK);
+        tap_keycode(clockwise ? C_NEXT : C_PREV);
     }
 }
 
@@ -61,7 +60,7 @@ static void update_ab(int enc, bool is_a, bool pressed) {
 
     acc[enc] += d;
 
-        // 最初は 4 遷移 = 1 ノッチのほうが安全
+        // 4 遷移 = 1 ノッチ
     if (acc[enc] >= 4) {
         acc[enc] = 0;
         on_step(enc, true);
