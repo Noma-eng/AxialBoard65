@@ -2,9 +2,11 @@
 
 #include <zmk/event_manager.h>
 #include <zmk/events/position_state_changed.h>
-#include <zmk/events/keycode_state_changed.h>
+
+#include <zmk/keymap.h>
 
 #define NUM_ENCODERS 2
+#define ENC_SYNTH_SOURCE 1  // synthetic re-injected position events for encoders
 
 // logical position 番号
 #define RE1_A_POS 14
@@ -31,19 +33,22 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
     return tbl[prev & 3][now & 3];
 }
 
-// Consumerキーをタップ（音量など）
-static void tap_keycode(uint32_t keycode) {
+static void tap_position(uint32_t position) {
     int64_t ts = k_uptime_get();
 
-    raise_zmk_keycode_state_changed_from_encoded(keycode, true, ts);
-    raise_zmk_keycode_state_changed_from_encoded(keycode, false, ts);
+    zmk_keymap_position_state_changed(
+        ENC_SYNTH_SOURCE, position, true, ts
+    );
+    zmk_keymap_position_state_changed(
+        ENC_SYNTH_SOURCE, position, false, ts
+    );
 }
 
 static void on_step(int enc_index, bool clockwise) {
     if (enc_index == 0) {
-        tap_keycode(clockwise ? C_VOL_UP : C_VOL_DN);
+        tap_position(clockwise ? RE1_A_POS : RE1_B_POS);
     } else {
-        tap_keycode(clockwise ? C_NEXT : C_PREV);
+        tap_position(clockwise ? RE2_A_POS : RE2_B_POS);
     }
 }
 
@@ -73,12 +78,23 @@ static int matrix_encoders_listener(const zmk_event_t *eh) {
     const struct zmk_position_state_changed *ev = as_zmk_position_state_changed(eh);
     if (!ev) return ZMK_EV_EVENT_BUBBLE;
 
+    /* 自分が再発行した synthetic event は無視して ZMK 本体へ流す */
+    if (ev->source == ENC_SYNTH_SOURCE) {
+        return ZMK_EV_EVENT_BUBBLE;
+    }
+
     uint32_t pos = ev->position;
     bool pressed = ev->state;
 
     for (int i = 0; i < NUM_ENCODERS; i++) {
-        if (pos == a_pos[i]) { update_ab(i, true,  pressed); break; }
-        if (pos == b_pos[i]) { update_ab(i, false, pressed); break; }
+        if (pos == a_pos[i]) {
+            update_ab(i, true, pressed);
+            return ZMK_EV_EVENT_HANDLED;
+        }
+        if (pos == b_pos[i]) {
+            update_ab(i, false, pressed);
+            return ZMK_EV_EVENT_HANDLED;
+        }
     }
 
     return ZMK_EV_EVENT_BUBBLE;
