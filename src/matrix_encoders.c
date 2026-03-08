@@ -36,7 +36,7 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
 // Consumerキーをタップ（音量など）
 static void tap_consumer(uint16_t usage) {
     zmk_hid_consumer_press(usage);
-    zmk_hid_consumer_release();
+    zmk_hid_consumer_release(usage);
 }
 
 static void on_step(int enc_index, bool clockwise) {
