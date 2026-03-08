@@ -45,11 +45,7 @@ static void tap_position(uint32_t position) {
 }
 
 static void on_step(int enc_index, bool clockwise) {
-    if (enc_index == 0) {
-        tap_position(clockwise ? RE1_A_POS : RE1_B_POS);
-    } else {
-        tap_position(clockwise ? RE2_A_POS : RE2_B_POS);
-    }
+
 }
 
 static void update_ab(int enc, bool is_a, bool pressed) {
