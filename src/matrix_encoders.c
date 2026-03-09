@@ -35,6 +35,7 @@ static void tap_position(uint32_t position) {
     int64_t ts = k_uptime_get();
 
     zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, true, ts);
+    k_msleep(10);
     zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, false, ts);
 }
 
