@@ -62,3 +62,8 @@
     };
 
 };
+
+&msc {
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
