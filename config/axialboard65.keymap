@@ -43,6 +43,12 @@
 #define JP_UNDER LS(JP_BSLH)  // _
 #define CALC  C_AL_CALCULATOR //電卓キー
 
+
+&msc {
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
+
 / {
     macros {
         enter_exit: enter_exit {
