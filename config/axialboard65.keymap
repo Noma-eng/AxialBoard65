@@ -91,8 +91,8 @@
                 &trans &trans &trans &trans &trans &trans &trans &kp KP_N1 &kp KP_N2 &kp KP_N3  &kp KP_MINUS  &kp KP_PLUS  &kp KP_MULTIPLY &trans      &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &kp KP_N0 &trans    &kp KP_DOT &kp KP_DIVIDE &trans       &trans          &trans      &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans    &trans    &to 2      &trans        &trans       &trans          &trans      &trans &trans
-    >;
-};
+            >;
+        };
 
     };
 };

@@ -5,6 +5,7 @@
 
 #define NUM_ENCODERS 2
 #define ENC_SYNTH_SOURCE 1  // synthetic re-injected position events for encoders
+#define MSC_HOLD_MS 20
 
 // logical position 番号
 #define RE1_A_POS 14
@@ -19,6 +20,10 @@ static uint8_t ab_now[NUM_ENCODERS];   // bit0=A, bit1=B
 static uint8_t ab_prev[NUM_ENCODERS];
 static int8_t  acc[NUM_ENCODERS];
 
+static struct k_work_delayable enc_release_work;
+static uint32_t pending_release_position;
+static bool release_pending = false;
+
 // Grayコード遷移テーブル
 static int8_t quad_dir(uint8_t prev, uint8_t now) {
     static const int8_t tbl[4][4] = {
@@ -31,12 +36,45 @@ static int8_t quad_dir(uint8_t prev, uint8_t now) {
     return tbl[prev & 3][now & 3];
 }
 
-static void tap_position(uint32_t position) {
-    int64_t ts = k_uptime_get();
+static void enc_release_work_handler(struct k_work *work) {
+    ARG_UNUSED(work);
 
-    zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, true, ts);
-    k_msleep(20);
-    zmk_keymap_position_state_changed(ENC_SYNTH_SOURCE, position, false, ts);
+    if (!release_pending) {
+        return;
+    }
+
+    zmk_keymap_position_state_changed(
+        ENC_SYNTH_SOURCE,
+        pending_release_position,
+        false,
+        k_uptime_get()
+    );
+
+    release_pending = false;
+}
+
+static void tap_position(uint32_t position) {
+    /* すでに pending があれば先に release しておく */
+    if (release_pending) {
+        zmk_keymap_position_state_changed(
+            ENC_SYNTH_SOURCE,
+            pending_release_position,
+            false,
+            k_uptime_get()
+        );
+        release_pending = false;
+    }
+
+    zmk_keymap_position_state_changed(
+        ENC_SYNTH_SOURCE,
+        position,
+        true,
+        k_uptime_get()
+    );
+
+    pending_release_position = position;
+    release_pending = true;
+    k_work_reschedule(&enc_release_work, K_MSEC(MSC_HOLD_MS));
 }
 
 static void on_step(int enc_index, bool clockwise) {
@@ -94,6 +132,13 @@ static int matrix_encoders_listener(const zmk_event_t *eh) {
 
     return ZMK_EV_EVENT_BUBBLE;
 }
+
+static int matrix_encoders_init(void) {
+    k_work_init_delayable(&enc_release_work, enc_release_work_handler);
+    return 0;
+}
+
+SYS_INIT(matrix_encoders_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
 
 ZMK_LISTENER(matrix_encoders, matrix_encoders_listener);
 ZMK_SUBSCRIPTION(matrix_encoders, zmk_position_state_changed);
