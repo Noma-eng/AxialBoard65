@@ -60,3 +60,7 @@
     transform = <&default_transform>;
     kscan = <&kscan0>;
 };
+
+&physical_layout1 {transform = <&default_transform>;};
+&physical_layout2 {transform = <&default_transform>;};
+&physical_layout3 {transform = <&default_transform>;};
