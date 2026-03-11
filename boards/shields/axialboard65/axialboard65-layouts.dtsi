@@ -4,8 +4,6 @@
     physical_layout0: physical_layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "AxialBoard65 Default";
-        transform = <&default_transform>;
-        kscan = <&kscan0>;
         keys =
             /* 00-15 */
             <&key_physical_attrs 100 100    0   0     0    0    0>,   /* pos 00: RC(0,0) */
