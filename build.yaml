@@ -2,3 +2,5 @@
 include:
   - board: bmp_boost
     shield: axialboard65
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y

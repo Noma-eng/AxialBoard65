@@ -1,0 +1,101 @@
+#include <physical_layouts.dtsi>
+
+/ {
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "AxialBoard65 Default";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        keys = <
+            /* 00-15 */
+            &key_physical_attrs 100 100    0   0     0    0    0   /* pos 00: RC(0,0) */
+            &key_physical_attrs 100 100  100   0     0    0    0   /* pos 01: RC(1,0) */
+            &key_physical_attrs 100 100  200   0     0    0    0   /* pos 02: RC(0,1) */
+            &key_physical_attrs 100 100  300   0     0    0    0   /* pos 03: RC(1,1) */
+            &key_physical_attrs 100 100  400   0     0    0    0   /* pos 04: RC(0,2) */
+            &key_physical_attrs 100 100  500   0     0    0    0   /* pos 05: RC(1,2) */
+            &key_physical_attrs 100 100  600   0     0    0    0   /* pos 06: RC(0,3) */
+            &key_physical_attrs 100 100  700   0     0    0    0   /* pos 07: RC(1,3) */
+            &key_physical_attrs 100 100  800   0     0    0    0   /* pos 08: RC(0,4) */
+            &key_physical_attrs 100 100  900   0     0    0    0   /* pos 09: RC(1,4) */
+            &key_physical_attrs 100 100 1000   0     0    0    0   /* pos 10: RC(0,5) */
+            &key_physical_attrs 100 100 1100   0     0    0    0   /* pos 11: RC(1,5) */
+            &key_physical_attrs 100 100 1200   0     0    0    0   /* pos 12: RC(0,6) */
+            &key_physical_attrs 100 100 1300   0     0    0    0   /* pos 13: RC(1,6) */
+            &key_physical_attrs  80  80   75 605 -2500 1500   50   /* pos 14: RC(0,7) enc1 ccw*/
+            &key_physical_attrs  80  80   75 485  2500 1500   50   /* pos 15: RC(1,7) enc1 cw */
+
+            /* 16-31 */
+            &key_physical_attrs 100 100    0 100     0    0    0   /* pos 16: RC(2,0) */
+            &key_physical_attrs 100 100  100 100     0    0    0   /* pos 17: RC(3,0) */
+            &key_physical_attrs 100 100  200 100     0    0    0   /* pos 18: RC(2,1) */
+            &key_physical_attrs 100 100  300 100     0    0    0   /* pos 19: RC(3,1) */
+            &key_physical_attrs 100 100  400 100     0    0    0   /* pos 20: RC(2,2) */
+            &key_physical_attrs 100 100  500 100     0    0    0   /* pos 21: RC(3,2) */
+            &key_physical_attrs 100 100  600 100     0    0    0   /* pos 22: RC(2,3) */
+            &key_physical_attrs 100 100  700 100     0    0    0   /* pos 23: RC(3,3) */
+            &key_physical_attrs 100 100  800 100     0    0    0   /* pos 24: RC(2,4) */
+            &key_physical_attrs 100 100  900 100     0    0    0   /* pos 25: RC(3,4) */
+            &key_physical_attrs 100 100 1000 100     0    0    0   /* pos 26: RC(2,5) */
+            &key_physical_attrs 100 100 1100 100     0    0    0   /* pos 27: RC(3,5) */
+            &key_physical_attrs 100 100 1200 100     0    0    0   /* pos 28: RC(2,6) */
+            &key_physical_attrs 100 200 1300 100     0    0    0   /* pos 29: RC(3,6) vertical Enter */
+            &key_physical_attrs  80  80 1460 -90     0    0    0   /* pos 30: RC(2,7) enc1 push */
+            &key_physical_attrs 100 100 1450 100     0    0    0   /* pos 31: RC(3,7) */
+
+            /* 32-47 */
+            &key_physical_attrs 100 100    0 200     0    0    0   /* pos 32: RC(4,0) */
+            &key_physical_attrs 100 100  100 200     0    0    0   /* pos 33: RC(5,0) */
+            &key_physical_attrs 100 100  200 200     0    0    0   /* pos 34: RC(4,1) */
+            &key_physical_attrs 100 100  300 200     0    0    0   /* pos 35: RC(5,1) */
+            &key_physical_attrs 100 100  400 200     0    0    0   /* pos 36: RC(4,2) */
+            &key_physical_attrs 100 100  500 200     0    0    0   /* pos 37: RC(5,2) */
+            &key_physical_attrs 100 100  600 200     0    0    0   /* pos 38: RC(4,3) */
+            &key_physical_attrs 100 100  700 200     0    0    0   /* pos 39: RC(5,3) */
+            &key_physical_attrs 100 100  800 200     0    0    0   /* pos 40: RC(4,4) */
+            &key_physical_attrs 100 100  900 200     0    0    0   /* pos 41: RC(5,4) */
+            &key_physical_attrs 100 100 1000 200     0    0    0   /* pos 42: RC(4,5) */
+            &key_physical_attrs 100 100 1100 200     0    0    0   /* pos 43: RC(5,5) */
+            &key_physical_attrs 100 100 1200 200     0    0    0   /* pos 44: RC(4,6) */
+            &key_physical_attrs   1   1    0 695     0    0    0   /* pos 45: RC(5,6) dummy */
+            &key_physical_attrs 100 100 1450 200     0    0    0   /* pos 46: RC(4,7) */
+            &key_physical_attrs   1   1    0 697     0    0    0   /* pos 47: RC(5,7) dummy */
+
+            /* 48-63 */
+            &key_physical_attrs 100 100    0 300     0    0    0   /* pos 48: RC(6,0) */
+            &key_physical_attrs 100 100  100 300     0    0    0   /* pos 49: RC(7,0) */
+            &key_physical_attrs 100 100  200 300     0    0    0   /* pos 50: RC(6,1) */
+            &key_physical_attrs 100 100  300 300     0    0    0   /* pos 51: RC(7,1) */
+            &key_physical_attrs 100 100  400 300     0    0    0   /* pos 52: RC(6,2) */
+            &key_physical_attrs 100 100  500 300     0    0    0   /* pos 53: RC(7,2) */
+            &key_physical_attrs 100 100  600 300     0    0    0   /* pos 54: RC(6,3) */
+            &key_physical_attrs 100 100  700 300     0    0    0   /* pos 55: RC(7,3) */
+            &key_physical_attrs 100 100  800 300     0    0    0   /* pos 56: RC(6,4) */
+            &key_physical_attrs 100 100  900 300     0    0    0   /* pos 57: RC(7,4) */
+            &key_physical_attrs 100 100 1000 300     0    0    0   /* pos 58: RC(6,5) */
+            &key_physical_attrs 100 100 1100 300     0    0    0   /* pos 59: RC(7,5) */
+            &key_physical_attrs 100 100 1200 300     0    0    0   /* pos 60: RC(6,6) */
+            &key_physical_attrs 100 100 1325 325     0    0    0   /* pos 61: RC(7,6) */
+            &key_physical_attrs  80  80   75 665 -2500 1500  350   /* pos 62: RC(6,7) enc2 ccw */
+            &key_physical_attrs  80  80   75 545  2500 1500  350   /* pos 63: RC(7,7) enc2 cw */
+
+            /* 64-79 */
+            &key_physical_attrs 100 100    0 400     0    0    0   /* pos 64: RC(8,0) */
+            &key_physical_attrs 100 100  100 400     0    0    0   /* pos 65: RC(9,0) */
+            &key_physical_attrs 100 100  200 400     0    0    0   /* pos 66: RC(8,1) */
+            &key_physical_attrs 125 100  300 400     0    0    0   /* pos 67: RC(9,1) */
+            &key_physical_attrs   1   1    0 718     0    0    0   /* pos 68: RC(8,2) dummy */
+            &key_physical_attrs 350 100  425 400     0    0    0   /* pos 69: RC(9,2) 3.5u space */
+            &key_physical_attrs   1   1    0 720     0    0    0   /* pos 70: RC(8,3) dummy */
+            &key_physical_attrs   1   1    0 721     0    0    0   /* pos 71: RC(9,3) dummy */
+            &key_physical_attrs 125 100  775 400     0    0    0   /* pos 72: RC(8,4) */
+            &key_physical_attrs 100 100  900 400     0    0    0   /* pos 73: RC(9,4) */
+            &key_physical_attrs 100 100 1000 400     0    0    0   /* pos 74: RC(8,5) */
+            &key_physical_attrs 100 100 1100 400     0    0    0   /* pos 75: RC(9,5) */
+            &key_physical_attrs 100 100 1225 425     0    0    0   /* pos 76: RC(8,6) */
+            &key_physical_attrs 100 100 1325 425     0    0    0   /* pos 77: RC(9,6) */
+            &key_physical_attrs  80  80 1460 310     0    0    0   /* pos 78: RC(8,7) enc2 push */
+            &key_physical_attrs 100 100 1425 425     0    0    0   /* pos 79: RC(9,7) */
+        >;
+    };
+};

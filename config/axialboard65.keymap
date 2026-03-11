@@ -73,7 +73,7 @@
                 &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &trans     &trans    &trans
                 &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &trans     &trans    &trans
                 &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &trans       &kp PG_UP  &trans    &trans
-                &trans      &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &kp HOME     &kp PG_DN  &trans    &kp END
+                &mo 3       &trans    &trans    &trans    &trans    &trans    &trans    &trans   &trans      &trans    &trans      &trans       &kp HOME     &kp PG_DN  &trans    &kp END
             >;
         };
 
@@ -84,6 +84,38 @@
                 &trans &trans &trans &trans &trans &trans &trans &kp KP_N1 &kp KP_N2 &kp KP_N3  &kp KP_MINUS  &kp KP_PLUS  &kp KP_MULTIPLY &trans      &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &kp KP_N0 &trans    &kp KP_DOT &kp KP_DIVIDE &trans       &trans          &trans      &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans    &trans    &to 2      &trans        &trans       &trans          &trans      &trans &trans
+            >;
+        };
+
+        config_layer {
+            bindings = <
+                &trans &trans         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &studio_unlock &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans         &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        reserved1_layer {
+            status = "reserved";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+
+        reserved2_layer {
+            status = "reserved";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
             >;
         };
 
