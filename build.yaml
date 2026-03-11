@@ -3,5 +3,4 @@ include:
   - board: bmp_boost
     shield: axialboard65
     snippet: studio-rpc-usb-uart
-    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_STUDIO=ywindows
