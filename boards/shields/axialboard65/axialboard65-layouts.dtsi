@@ -22,8 +22,8 @@
             <&key_physical_attrs 100 100 1100   0     0    0    0>,   /* pos 11: RC(1,5) */
             <&key_physical_attrs 100 100 1200   0     0    0    0>,   /* pos 12: RC(0,6) */
             <&key_physical_attrs 100 100 1300   0     0    0    0>,   /* pos 13: RC(1,6) */
-            <&key_physical_attrs  80  80 1560  10 -2500 1500   50>,   /* pos 14: RC(0,7) enc1 ccw */
-            <&key_physical_attrs  80  80 1560  10  2500 1500   50>,   /* pos 15: RC(1,7) enc1 cw */
+            <&key_physical_attrs  80  80 1560  10 (-2500) 1500 50>,   /* pos 14: RC(0,7) enc1 ccw */
+            <&key_physical_attrs  80  80 1560  10   2500  1500 50>,   /* pos 15: RC(1,7) enc1 cw */
 
             /* 16-31 */
             <&key_physical_attrs 100 100    0 100     0    0    0>,   /* pos 16: RC(2,0) */
@@ -76,8 +76,8 @@
             <&key_physical_attrs 100 100 1100 300     0    0    0>,   /* pos 59: RC(7,5) */
             <&key_physical_attrs 100 100 1200 300     0    0    0>,   /* pos 60: RC(6,6) */
             <&key_physical_attrs 100 100 1325 325     0    0    0>,   /* pos 61: RC(7,6) */
-            <&key_physical_attrs  80  80 1560 310 -2500 1500  350>,   /* pos 62: RC(6,7) enc2 ccw */
-            <&key_physical_attrs  80  80 1560 310  2500 1500  350>,   /* pos 63: RC(7,7) enc2 cw */
+            <&key_physical_attrs  80  80 1560 310 (-2500) 1500 350>,   /* pos 62: RC(6,7) enc2 ccw */
+            <&key_physical_attrs  80  80 1560 310   2500  1500 350>,   /* pos 63: RC(7,7) enc2 cw */
 
             /* 64-79 */
             <&key_physical_attrs 100 100    0 400     0    0    0>,   /* pos 64: RC(8,0) */
